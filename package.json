@@ -1,0 +1,13 @@
+{
+  "name": "lucky-guru-gta-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lucky Guru GTA 6 LT Meta landing page (static, Railway)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
