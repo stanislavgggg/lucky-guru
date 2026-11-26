@@ -66,7 +66,7 @@ function send(res, status, headers, body, method) {
   res.end(method === 'HEAD' ? undefined : body);
 }
 
-const SUBID_RE = /^[A-Za-z0-9_-]{4,64}$/;
+const SUBID_RE = /^[A-Za-z0-9._-]{4,64}$/; // Keitaro subids contain dots, e.g. 1h0i0rt.e9.i36c
 function readCookie(req, name) {
   const m = new RegExp('(?:^|;\\s*)' + name + '=([^;]+)').exec(req.headers.cookie || '');
   return m ? decodeURIComponent(m[1]) : '';
@@ -75,9 +75,11 @@ function readCookie(req, name) {
 // Fire-and-forget S2S postback to Keitaro. Never blocks the visitor's redirect.
 const sent = new Set();
 function keitaroPostback(subid, cta) {
-  if (!KT_POSTBACK || !SUBID_RE.test(subid)) return;
+  if (!KT_POSTBACK) return;
+  if (!subid) return console.log(`[postback] skipped: no subid (cta=${cta})`);
+  if (!SUBID_RE.test(subid)) return console.log(`[postback] skipped: unexpected subid format "${String(subid).slice(0, 80)}"`);
   const key = subid + ':' + KT_STATUS;
-  if (sent.has(key)) return; // one conversion per subid per status
+  if (sent.has(key)) return console.log(`[postback] skipped: already sent for subid=${subid}`);
   sent.add(key); if (sent.size > 50000) sent.clear();
   const u = new URL(KT_POSTBACK);
   u.searchParams.set('subid', subid);
