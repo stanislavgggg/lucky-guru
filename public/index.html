@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucky Guru – GTA 6 Telegram bendruomenė</title>
+<meta name="description" content="Nemokama Lucky Guru Telegram bendruomenė: GTA 6 naujienos, apžvalgos ir bendruomenės įvykiai. Prisijunk prie 1 293 narių. 18+.">
+<meta name="theme-color" content="#07030F">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="lt_LT">
+<meta property="og:title" content="Lucky Guru – GTA 6 Telegram bendruomenė">
+<meta property="og:description" content="Nemokama Lucky Guru Telegram bendruomenė: GTA 6 naujienos, apžvalgos ir bendruomenės įvykiai. Prisijunk prie 1 293 narių. 18+.">
+<meta property="og:image" content="/assets/img/og-logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/icon-32.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-180.png">
+<link rel="preload" href="/assets/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Inter;font-weight:400 700;font-display:swap;src:url(/assets/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Inter;font-weight:400 700;font-display:swap;src:url(/assets/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Oswald;font-weight:500 700;font-display:swap;src:url(/assets/fonts/oswald-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Oswald;font-weight:500 700;font-display:swap;src:url(/assets/fonts/oswald-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --bg:#07030F;--ink:#FFF4F8;--ink-2:#E2D6EE;--ink-3:#B9A9CF;--line:#2A1E40;
+  --pink:#FF2E88;--orange:#FF8A3D;--sun:#FFD25A;--teal:#2DE2E6;--tg:#2AABEE;
+  --sunset:linear-gradient(100deg,#FF2E88 0%,#FF6A4D 55%,#FFB547 100%);
+  --display:Oswald,'Arial Narrow',Impact,sans-serif;--safe-b:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:clip}
+h1,h2,p,ol,ul{margin:0}
+img,video{display:block;max-width:100%}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+/* Vice-city sky behind everything */
+.sky{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(70% 45% at 85% 0%,rgba(255,46,136,.35),transparent 70%),
+  radial-gradient(60% 40% at 0% 30%,rgba(45,226,230,.16),transparent 70%),
+  radial-gradient(80% 50% at 50% 110%,rgba(255,138,61,.22),transparent 70%),var(--bg)}
+
+.page{max-width:1080px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) calc(120px + var(--safe-b)) max(16px,env(safe-area-inset-left))}
+.hero{display:grid;gap:16px}
+
+/* Portrait video styled as a Telegram channel preview */
+.media{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/13;max-height:44svh;width:100%;margin:0 auto;background:#140A24 url(/assets/img/logo-480.webp) center/auto 58% no-repeat;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 18px 60px rgba(255,46,136,.28)}
+.media video{width:100%;height:100%;object-fit:cover}
+.media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,3,15,.75) 0%,transparent 26%,transparent 62%,rgba(7,3,15,.9) 100%);pointer-events:none}
+.chan{position:absolute;z-index:2;top:12px;left:12px;right:12px;display:flex;align-items:center;gap:10px}
+.chan-av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--sunset);font-family:var(--display);font-weight:700;font-size:16px;color:#1A0716;flex:none}
+.chan b{display:block;font-family:var(--display);font-size:17px;letter-spacing:.8px}
+.chan small{display:block;font-size:12px;color:var(--ink-2)}
+.chan .tgdot{margin-left:auto;width:30px;height:30px;border-radius:50%;background:var(--tg);display:grid;place-items:center;flex:none}
+.media-bonus{position:absolute;z-index:2;left:12px;right:12px;bottom:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:14px;background:rgba(20,10,36,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);font-weight:700;font-size:15px;line-height:1.3}
+
+.copy{display:flex;flex-direction:column;gap:14px}
+h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(32px,9vw,64px);line-height:1.04;padding-top:.08em;letter-spacing:.3px;background:linear-gradient(180deg,#FFF4F8 30%,#FFC2DB 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 0 transparent;filter:drop-shadow(0 4px 22px rgba(255,46,136,.35))}
+.lead{font-size:17px;line-height:1.55;color:var(--ink-2)}
+.lead strong{color:var(--ink)}
+
+.code{display:flex;align-items:stretch;border-radius:14px;overflow:hidden;border:2px dashed rgba(255,181,71,.7);background:rgba(255,138,61,.08)}
+.code-txt{flex:1;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.code-txt span{font-size:13px;color:var(--ink-3)}
+.code-txt b{font-family:var(--display);font-size:26px;letter-spacing:3px;color:var(--sun)}
+.code button{flex:none;border:0;border-left:2px dashed rgba(255,181,71,.7);background:transparent;color:var(--ink);font:600 14px Inter,sans-serif;padding:0 16px;cursor:pointer;min-width:96px;touch-action:manipulation}
+.code button.ok{color:var(--teal)}
+
+.urgent{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:rgba(255,46,136,.12);border:1px solid rgba(255,46,136,.45);font-size:14px;line-height:1.45}
+.urgent b{color:var(--pink)}
+.live{flex:none;width:10px;height:10px;margin-top:5px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(255,46,136,.7);animation:ping 1.6s ease-out infinite}
+
+.cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:0 22px;border-radius:16px;background:var(--sunset);color:#1A0716;font-weight:800;font-size:18px;text-decoration:none;text-align:center;touch-action:manipulation;box-shadow:0 10px 34px rgba(255,46,136,.45)}
+.cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+.cta:active{transform:scale(.98)}
+.cta svg{flex:none}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 6px;font-size:13px;color:var(--ink-3);text-align:center}
+.flow svg{flex:none;color:var(--orange)}
+
+/* Social proof */
+.proof{margin-top:28px;display:grid;gap:12px}
+.members{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.avs{display:flex}
+.avs i{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:grid;place-items:center;font:700 12px Inter,sans-serif;font-style:normal;color:#1A0716}
+.avs i:first-child{margin-left:0}
+.bubbles{display:grid;gap:10px}
+.bubble{display:flex;gap:10px;align-items:flex-end}
+.bubble .av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:14px;color:#1A0716}
+.bubble div{background:#1A1030;border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:9px 13px;max-width:85%}
+.bubble b{display:block;font-size:13px;margin-bottom:2px}
+.bubble p{font-size:15px;line-height:1.4;color:var(--ink-2)}
+.c1{background:#FF8A3D}.c2{background:#2DE2E6}.c3{background:#FF2E88}.c4{background:#FFD25A}
+
+/* Sections */
+.sec{margin-top:40px;display:grid;gap:16px}
+h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(26px,7vw,40px);line-height:1.05}
+.why{list-style:none;padding:0;display:grid;gap:10px}
+.why li{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:16px;background:rgba(26,16,48,.8);border:1px solid var(--line);font-size:16px;line-height:1.45}
+.why .ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(255,46,136,.14)}
+.why li:nth-child(2) .ico{background:rgba(45,226,230,.14)}
+.why li:nth-child(3) .ico{background:rgba(255,181,71,.16)}
+
+.steps{list-style:none;padding:0;display:grid;gap:0;counter-reset:s;position:relative}
+.steps li{counter-increment:s;position:relative;display:flex;gap:14px;padding:0 0 18px;font-size:16px;line-height:1.5}
+.steps li::before{content:counter(s);flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--sunset);color:#1A0716;font-family:var(--display);font-weight:700;font-size:18px;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:17px;top:36px;bottom:0;width:2px;background:linear-gradient(var(--pink),var(--orange));opacity:.5}
+.steps li span{padding-top:6px}
+.steps b{color:var(--sun);letter-spacing:1px}
+
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;line-height:1.6;color:var(--ink-3);display:grid;gap:6px}
+.legal strong{color:var(--ink)}
+
+/* Sticky bonus bar */
+.bar{position:fixed;z-index:50;left:0;right:0;bottom:0;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + var(--safe-b));background:rgba(12,6,24,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid rgba(255,46,136,.35);transform:translateY(110%);transition:transform .25s ease}
+.bar.on{transform:none}
+.bar-in{max-width:560px;margin:0 auto;display:grid;gap:8px}
+.bar-line{font-size:13px;font-weight:600;text-align:center;color:var(--ink-2)}
+.bar-line b{color:var(--sun);letter-spacing:1px}
+.bar .cta{min-height:52px;font-size:17px;border-radius:14px}
+
+@keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,46,136,.7)}100%{box-shadow:0 0 0 10px rgba(255,46,136,0)}}
+
+@media (hover:hover) and (pointer:fine){.cta:hover{filter:brightness(1.08)}.code button:hover{background:rgba(255,181,71,.12)}}
+
+/* Desktop: video beside the copy */
+@media (min-width:900px){
+  .page{padding-top:40px}
+  .hero{grid-template-columns:minmax(0,400px) 1fr;gap:48px;align-items:center}
+  .media{max-height:none}
+  .lead{font-size:19px;max-width:520px}
+  .flow{justify-content:flex-start;text-align:left}
+  .rest{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+  .proof{grid-column:1/-1}
+  .bubbles{grid-template-columns:repeat(3,1fr)}
+  .legal{grid-column:1/-1}
+}
+@media (max-width:360px){.page{padding-left:12px;padding-right:12px}.code-txt b{font-size:22px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+<!--GTM_HEAD-->
+<!--META_PIXEL-->
+</head>
+<body>
+<!--GTM_BODY-->
+<div class="sky" aria-hidden="true"></div>
+
+<main class="page">
+  <section class="hero">
+    <div class="media">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="/assets/img/logo-480.webp" aria-hidden="true">
+        <source src="/assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="chan">
+        <span class="chan-av">LG</span>
+        <span><b>LUCKY GURU</b><small>1 293 nariai</small></span>
+        <span class="tgdot" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.4-.1-.6-.6-.2l-11 6.9-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></span>
+      </div>
+      <div class="media-bonus"><span>🎁 200 % iki 2000 € + 150 sukimų</span></div>
+    </div>
+
+    <div class="copy">
+      <h1>GTA 6 jau čia – švenčiame su premija!</h1>
+      <p class="lead">Prenumeruok didžiausią slotų bendruomenę Lietuvoje ir aktyvuok savo premiją: <strong>200 % iki 2000 € + 150 sukimų!</strong> Tavo kodas: <strong>CASINO</strong></p>
+
+      <div class="code">
+        <div class="code-txt"><span>🎁 200 % iki 2000 € + 150 sukimų</span><b id="codeVal">CASINO</b></div>
+        <button type="button" id="copyBtn" aria-label="Kopijuoti kodą CASINO">Kopijuoti</button>
+      </div>
+
+      <div class="urgent" role="note"><span class="live" aria-hidden="true"></span><span><b>RIBOTAS PASIŪLYMAS:</b> šventinė premija GTA 6 proga galioja tik ribotą laiką!</span></div>
+
+      <a class="cta" id="cta-hero" href="/go?cta=hero" data-cta="hero" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+        Prenumeruoti ir pasiimti premiją
+      </a>
+
+      <p class="flow">
+        <span>Prenumeruok žaidimų bendruomenę</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        <span>Aktyvuok premiją</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+        <span>Žaisk GTA 6 įkvėptą žaidimą Miami Mayhem!</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="rest">
+    <section class="proof" aria-label="Narių atsiliepimai">
+      <div class="members">
+        <span class="avs" aria-hidden="true"><i class="c1">T</i><i class="c2">G</i><i class="c3">M</i><i class="c4">+</i></span>
+        👥 1 293+ narių
+      </div>
+      <div class="bubbles">
+        <div class="bubble"><span class="av c1" aria-hidden="true">T</span><div><b>Tomas</b><p>Kodas suveikė iš karto, ačiū! 🔥</p></div></div>
+        <div class="bubble"><span class="av c2" aria-hidden="true">G</span><div><b>Greta</b><p>Pagaliau viskas lietuviškai ir be streso 🙌</p></div></div>
+        <div class="bubble"><span class="av c3" aria-hidden="true">M</span><div><b>Mantas</b><p>Naujienas sužinau pirmas, top kanalas 👍</p></div></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Kodėl verta prenumeruoti?</h2>
+      <ul class="why">
+        <li><span class="ico" aria-hidden="true">🎁</span><span>Gausi riboto laiko premijas, kurios skelbiamos TIK bendruomenėje</span></li>
+        <li><span class="ico" aria-hidden="true">🎰</span><span>Pirmas sužinosi apie trendus ir naujausius slotus</span></li>
+        <li><span class="ico" aria-hidden="true">🔥</span><span>Kartu bendrausim, rengsim viktorinas ir testuosim žaidimus</span></li>
+      </ul>
+    </section>
+
+    <section class="sec" id="how">
+      <h2>Kaip gauti premiją?</h2>
+      <ol class="steps">
+        <li><span>Prenumeruok bendruomenę</span></li>
+        <li><span>Premijos kodą <b>CASINO</b> rasi prisegtame įraše</span></li>
+        <li><span>Registruodamasis įvesk kodą <b>CASINO</b> ir pradėk su 200 % premija ir 150 sukimų</span></li>
+      </ol>
+      <a class="cta" id="cta-final" href="/go?cta=final" data-cta="final" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+        Prenumeruoti ir pasiimti premiją
+      </a>
+    </section>
+
+    <footer class="legal">
+      <p><strong>18+</strong> | Žaisk atsakingai | Taikomos premijos sąlygos</p>
+      <p>Šis puslapis skirtas tik pilnamečiams. Narystė bendruomenėje negarantuoja laimėjimų.</p>
+    </footer>
+  </div>
+</main>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <div class="bar-in">
+    <p class="bar-line">🎁 200 % iki 2000 € + 150 sukimų · Kodas: <b>CASINO</b></p>
+    <a class="cta" href="/go?cta=sticky" data-cta="sticky" rel="noopener" tabindex="-1">Prenumeruoti ir pasiimti premiją</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Copy bonus code
+  var btn=document.getElementById('copyBtn');
+  btn.addEventListener('click',function(){
+    var code='CASINO',done=function(){btn.textContent='Nukopijuota ✓';btn.classList.add('ok');setTimeout(function(){btn.textContent='Kopijuoti';btn.classList.remove('ok')},2000)};
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(done,fallback)}else fallback();
+    function fallback(){var t=document.createElement('textarea');t.value=code;t.setAttribute('readonly','');t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(t)}
+    if(window.fbq)try{fbq('trackCustom','CopyCode')}catch(e){}
+    if(window.dataLayer)dataLayer.push({event:'copy_code'});
+  });
+
+  // Hide the video element if the file is missing, so the poster/logo background shows cleanly
+  var v=document.getElementById('heroVideo');
+  v.querySelector('source').addEventListener('error',function(){v.style.display='none'});
+
+  // Sticky bar: shown whenever neither the hero button nor the final button is on screen
+  var bar=document.getElementById('bar'),hero=document.getElementById('cta-hero'),fin=document.getElementById('cta-final');
+  if('IntersectionObserver' in window){
+    var heroIn=true,finIn=false;
+    function upd(){var on=!heroIn&&!finIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');bar.querySelector('a').tabIndex=on?0:-1}
+    new IntersectionObserver(function(e){heroIn=e[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(e){finIn=e[0].isIntersecting;upd()}).observe(fin);
+  }
+
+  // Backup for the subid cookie: carry ?subid= from the page URL onto the buttons
+  var sid=new URLSearchParams(location.search).get('subid');
+  if(sid&&/^[A-Za-z0-9._-]{4,64}$/.test(sid)){
+    [].forEach.call(document.querySelectorAll('a[data-cta]'),function(a){a.href=a.getAttribute('href')+'&subid='+encodeURIComponent(sid)});
+  }
+
+  // CTA tracking
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest&&ev.target.closest('a[data-cta]');if(!a)return;
+    var where=a.getAttribute('data-cta');
+    if(window.dataLayer)dataLayer.push({event:'tg_subscribe_click',cta_position:where});
+    if(window.fbq){
+      // Give the pixel request a moment to leave before the page navigates to Telegram,
+      // otherwise in-app browsers often cancel it and the Lead never reaches Meta.
+      try{fbq('track','Lead',{content_name:'tg_subscribe',content_category:where})}catch(e){}
+      if(ev.button===0&&!ev.metaKey&&!ev.ctrlKey&&!ev.shiftKey){
+        ev.preventDefault();var href=a.href;setTimeout(function(){location.href=href},350);
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
