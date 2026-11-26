@@ -265,7 +265,7 @@ h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
 
   // Backup for the subid cookie: carry ?subid= from the page URL onto the buttons
   var sid=new URLSearchParams(location.search).get('subid');
-  if(sid&&/^[A-Za-z0-9_-]{4,64}$/.test(sid)){
+  if(sid&&/^[A-Za-z0-9._-]{4,64}$/.test(sid)){
     [].forEach.call(document.querySelectorAll('a[data-cta]'),function(a){a.href=a.getAttribute('href')+'&subid='+encodeURIComponent(sid)});
   }
 
