@@ -174,7 +174,7 @@ h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
 
       <div class="urgent" role="note"><span class="live" aria-hidden="true"></span><span><b>GALIOJA RIBOTĄ LAIKĄ:</b> šventinė premija GTA 6 proga - tik ribotą laiką!</span></div>
 
-      <a class="cta" id="cta-hero" href="__TG_LINK__" data-cta="hero" rel="noopener">
+      <a class="cta" id="cta-hero" href="/go?cta=hero" data-cta="hero" rel="noopener">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
         Prenumeruoti ir pasiimti premiją
       </a>
@@ -218,7 +218,7 @@ h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
         <li><span>Premijos kodą <b>CASINO</b> rasi prisegtame įraše</span></li>
         <li><span>Registruodamasis įvesk kodą <b>CASINO</b> ir pradėk su 200% premija + 150 sukimų</span></li>
       </ol>
-      <a class="cta" id="cta-final" href="__TG_LINK__" data-cta="final" rel="noopener">
+      <a class="cta" id="cta-final" href="/go?cta=final" data-cta="final" rel="noopener">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
         Prenumeruoti ir pasiimti premiją
       </a>
@@ -234,7 +234,7 @@ h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
 <div class="bar" id="bar" aria-hidden="true">
   <div class="bar-in">
     <p class="bar-line">🎁 200% iki 2000€ + 150 sukimų · Kodas: <b>CASINO</b></p>
-    <a class="cta" href="__TG_LINK__" data-cta="sticky" rel="noopener" tabindex="-1">Prenumeruoti ir pasiimti premiją</a>
+    <a class="cta" href="/go?cta=sticky" data-cta="sticky" rel="noopener" tabindex="-1">Prenumeruoti ir pasiimti premiją</a>
   </div>
 </div>
 
@@ -261,6 +261,12 @@ h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
     function upd(){var on=!heroIn&&!finIn;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');bar.querySelector('a').tabIndex=on?0:-1}
     new IntersectionObserver(function(e){heroIn=e[0].isIntersecting;upd()}).observe(hero);
     new IntersectionObserver(function(e){finIn=e[0].isIntersecting;upd()}).observe(fin);
+  }
+
+  // Backup for the subid cookie: carry ?subid= from the page URL onto the buttons
+  var sid=new URLSearchParams(location.search).get('subid');
+  if(sid&&/^[A-Za-z0-9_-]{4,64}$/.test(sid)){
+    [].forEach.call(document.querySelectorAll('a[data-cta]'),function(a){a.href=a.getAttribute('href')+'&subid='+encodeURIComponent(sid)});
   }
 
   // CTA tracking

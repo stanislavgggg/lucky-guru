@@ -2,6 +2,9 @@
 // Config (Railway > Variables):
 //   TG_LINK        Telegram join link the CTA buttons open (required for launch)
 //   META_PIXEL_ID  optional; adds the Meta Pixel and tracks CTA clicks as "Lead"
+//   KEITARO_POSTBACK_URL  optional; e.g. https://trk.example.com/AbC123/postback
+//                  (Keitaro: Maintenance > Postback). Button clicks are reported as status=lead.
+//   KEITARO_STATUS optional; status sent on click (default "lead")
 //   GTM_ID         optional; Google Tag Manager container (e.g. GTM-PVHMWFVM)
 //   PORT           set by Railway automatically
 'use strict';
@@ -15,6 +18,9 @@ const ROOT = path.join(__dirname, 'public');
 const TG_LINK = process.env.TG_LINK || 'https://t.me/YOUR_CHANNEL';
 const PIXEL_ID = (process.env.META_PIXEL_ID || '').trim();
 const GTM_ID = (process.env.GTM_ID || '').trim();
+const KT_POSTBACK = (process.env.KEITARO_POSTBACK_URL || '').trim();
+const KT_STATUS = (process.env.KEITARO_STATUS || 'lead').trim();
+const https = require('https');
 
 if (!process.env.TG_LINK) console.warn('[warn] TG_LINK is not set; CTA buttons point to the placeholder link.');
 if (GTM_ID && !/^GTM-[A-Z0-9]{4,12}$/.test(GTM_ID)) { console.error('[error] GTM_ID must look like GTM-XXXXXXX.'); process.exit(1); }
@@ -60,9 +66,38 @@ function send(res, status, headers, body, method) {
   res.end(method === 'HEAD' ? undefined : body);
 }
 
+const SUBID_RE = /^[A-Za-z0-9_-]{4,64}$/;
+function readCookie(req, name) {
+  const m = new RegExp('(?:^|;\\s*)' + name + '=([^;]+)').exec(req.headers.cookie || '');
+  return m ? decodeURIComponent(m[1]) : '';
+}
+
+// Fire-and-forget S2S postback to Keitaro. Never blocks the visitor's redirect.
+const sent = new Set();
+function keitaroPostback(subid, cta) {
+  if (!KT_POSTBACK || !SUBID_RE.test(subid)) return;
+  const key = subid + ':' + KT_STATUS;
+  if (sent.has(key)) return; // one conversion per subid per status
+  sent.add(key); if (sent.size > 50000) sent.clear();
+  const u = new URL(KT_POSTBACK);
+  u.searchParams.set('subid', subid);
+  u.searchParams.set('status', KT_STATUS);
+  u.searchParams.set('payout', '0');
+  const lib = u.protocol === 'http:' ? http : https;
+  const r = lib.get(u, { timeout: 5000 }, resp => {
+    resp.resume();
+    console.log(`[postback] subid=${subid} status=${KT_STATUS} cta=${cta} -> HTTP ${resp.statusCode}`);
+  });
+  r.on('timeout', () => r.destroy(new Error('timeout')));
+  r.on('error', e => { sent.delete(key); console.error(`[postback] subid=${subid} failed: ${e.message}`); });
+}
+
 function sendIndex(req, res) {
   const ae = req.headers['accept-encoding'] || '';
   const h = { 'Content-Type': TYPES['.html'], 'Cache-Control': 'no-cache', 'Vary': 'Accept-Encoding' };
+  // Remember Keitaro's subid (arrives as ?subid=...) for 30 days, so /go can report it.
+  const q = new URL(req.url, 'http://x').searchParams.get('subid') || '';
+  if (SUBID_RE.test(q)) h['Set-Cookie'] = `lg_subid=${q}; Path=/; Max-Age=2592000; SameSite=Lax; Secure; HttpOnly`;
   if (/\bbr\b/.test(ae)) return send(res, 200, Object.assign(h, { 'Content-Encoding': 'br' }), htmlBr, req.method);
   if (/\bgzip\b/.test(ae)) return send(res, 200, Object.assign(h, { 'Content-Encoding': 'gzip' }), htmlGz, req.method);
   return send(res, 200, h, htmlBuf, req.method);
@@ -75,6 +110,13 @@ const server = http.createServer((req, res) => {
   try { pathname = decodeURIComponent(new URL(req.url, 'http://x').pathname); }
   catch { return send(res, 400, {}, 'Bad request', req.method); }
 
+  // Button target: report the click to Keitaro, then send the visitor to Telegram.
+  if (pathname === '/go') {
+    const sp = new URL(req.url, 'http://x').searchParams;
+    const subid = sp.get('subid') || readCookie(req, 'lg_subid');
+    keitaroPostback(subid, (sp.get('cta') || '').replace(/[^a-z]/g, '').slice(0, 12));
+    return send(res, 302, { Location: TG_LINK, 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' }, '', req.method);
+  }
   if (pathname === '/healthz') return send(res, 200, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }, 'ok', req.method);
   if (pathname === '/' || pathname === '/index.html') return sendIndex(req, res);
   if (pathname === '/favicon.ico') pathname = '/assets/img/icon-32.png';
@@ -116,5 +158,5 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, '0.0.0.0', () => console.log(`Lucky Guru GTA landing on :${PORT} | TG_LINK=${TG_LINK} | pixel=${PIXEL_ID ? 'on' : 'off'} | gtm=${GTM_ID || 'off'}`));
+server.listen(PORT, '0.0.0.0', () => console.log(`Lucky Guru GTA landing on :${PORT} | TG_LINK=${TG_LINK} | pixel=${PIXEL_ID ? 'on' : 'off'} | gtm=${GTM_ID || 'off'} | keitaro=${KT_POSTBACK ? 'on' : 'off'}`));
 process.on('SIGTERM', () => server.close(() => process.exit(0)));

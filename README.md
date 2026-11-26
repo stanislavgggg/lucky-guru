@@ -21,3 +21,10 @@ Keep it under ~3 MB, H.264, no audio track. Without it, the hero shows the Lucky
 
 ## Local
 `TG_LINK=https://t.me/test node server.js` then open http://localhost:3000
+
+## Keitaro postback
+Flow: Meta ad, Keitaro campaign link, this landing (`?subid={subid}`), button `/go`, Telegram.
+- Keitaro stream: redirect to `https://<railway-domain>/?subid={subid}`
+- Railway variable `KEITARO_POSTBACK_URL` = the postback URL from Keitaro (Maintenance > Postback), without parameters
+- Each button click sends `subid`, `status=lead`, `payout=0` once per subid, then redirects to `TG_LINK`
+- Railway logs show every postback as `[postback] subid=... -> HTTP 200`
